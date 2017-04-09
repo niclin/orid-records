@@ -1,0 +1,12 @@
+
+<% unless @orids.empty? %>
+  <% @oirds.each do |orid| %>
+    <%= orid.objective %>
+    <%= orid.reflective %>
+    <%= orid.interpretive %>
+    <%= orid.decisional %>
+  <% end %>
+<% end %>
+
+
+<%= link_to 'new', new_orid_path %>
