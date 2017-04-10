@@ -20,6 +20,11 @@
         <h3>Decisional</h3>
         <%= orid.decisional %>
       </div>
+      <div class="panel-footer">
+        <%= link_to '編輯', edit_orid_path(orid), class: 'btn btn-sm btn-default' %>
+        <%= link_to("刪除", orid_path(orid),    class: "btn btn-sm btn-default",
+          method: :delete, data: { confirm: "Are you sure?" } )%>
+      </div>
     </div>
   <% end %>
   </div>

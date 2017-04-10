@@ -22,12 +22,17 @@ class OridsController < ApplicationController
   end
 
   def edit
+    @orid = Orid.find(params[:id])
   end
 
   def show
   end
 
   def destroy
+    @orid = Orid.find(params[:id])
+    @orid.destroy
+
+    redirect_to orids_path
   end
 
   private
