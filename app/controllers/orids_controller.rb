@@ -2,7 +2,7 @@ class OridsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @orids = Orid.all
+    @orids = current_user.orids
   end
 
   def new
@@ -10,6 +10,12 @@ class OridsController < ApplicationController
   end
 
   def create
+    @orid = Orid.new(orid_params)
+    @orid.user = current_user
+
+    @orid.save
+
+    redirect_to orids_path
   end
 
   def update
@@ -22,5 +28,11 @@ class OridsController < ApplicationController
   end
 
   def destroy
+  end
+
+  private
+
+  def orid_params
+    params.require(:orid).permit(:objective, :reflective, :interpretive, :decisional)
   end
 end

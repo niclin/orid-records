@@ -2,15 +2,15 @@
     <h2>新增ORID</h2>
 
     <hr>
-    <%= form_for @orid do |f| %>
+    <%= simple_form_for @orid do |f| %>
 
-    <%= f.text_field :objective %>
+    <%= f.input :objective %>
     <br>
-    <%= f.text_field :reflective %>
+    <%= f.input :reflective %>
     <br>
-    <%= f.text_field :interpretive %>
+    <%= f.input :interpretive %>
     <br>
-    <%= f.text_field :decisional %>
+    <%= f.input :decisional %>
     <br>
 
     <%= f.submit "Submit", :disable_with => 'Submiting...' %>
