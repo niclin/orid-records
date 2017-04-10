@@ -1,0 +1,19 @@
+<div class="col-md-4 col-md-offset-4">
+    <h2>新增ORID</h2>
+
+    <hr>
+    <%= simple_form_for @orid do |f| %>
+
+    <%= f.input :objective, label: 'Objective 客觀、事實', placeholder: '關於這堂課程你記得了什麼？學到了什麼？' %>
+    <br>
+    <%= f.input :reflective, label: 'Reflective 感受、反應', placeholder: '這堂課程帶來的情緒高峰是何處？' %>
+    <br>
+    <%= f.input :interpretive, label: 'Interpretive 意義、經驗', placeholder: '今天學到了什麼？' %>
+    <br>
+    <%= f.input :decisional, label: 'Decisional 決定、行動', placeholder: '我們會如何用一句話形容今天的工作？' %>
+    <br>
+
+    <%= f.submit "Submit", :disable_with => 'Submiting...' %>
+    <% end %>
+
+</div>

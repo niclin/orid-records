@@ -1,24 +1,26 @@
+<div class="row">
+  <div class="col-md-12">
+    <%= link_to '新增 ORID', new_orid_path, class: 'btn btn-primary' %>
+  </div>
 
+  <div class="col-md-12">
   <% @orids.each do |orid| %>
-
-
-<div class="panel panel-default">
-  <div class="panel-heading"><%= orid.created_at %></div>
-  <div class="panel-body">
-    <h3>Objective</h3>
-    <%= orid.objective %>
-    <br>
-    <h3>Reflective</h3>
-    <%= orid.reflective %>
-    <br>
-    <h3>Interpretive</h3>
-    <%= orid.interpretive %>
-    <br>
-    <h3>Decisional</h3>
-    <%= orid.decisional %>
+    <div class="panel panel-default">
+      <div class="panel-heading"><%= orid.created_at %></div>
+      <div class="panel-body">
+        <h3>Objective</h3>
+        <%= orid.objective %>
+        <br>
+        <h3>Reflective</h3>
+        <%= orid.reflective %>
+        <br>
+        <h3>Interpretive</h3>
+        <%= orid.interpretive %>
+        <br>
+        <h3>Decisional</h3>
+        <%= orid.decisional %>
+      </div>
+    </div>
+  <% end %>
   </div>
 </div>
-
-  <% end %>
-
-<%= link_to 'new', new_orid_path %>
