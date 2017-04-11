@@ -3,4 +3,8 @@ Rails.application.routes.draw do
   resources :orids
 
   root 'orids#index'
+
+  namespace :admin do
+    resources :orids
+  end
 end

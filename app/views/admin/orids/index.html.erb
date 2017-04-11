@@ -1,0 +1,25 @@
+<h2> ORID列表 </h2>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>id</th>
+      <th>作者</th>
+      <th>建立日期</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @orids.each do |orid| %>
+      <tr>
+        <td>
+          <%= link_to orid.id, orid_path(orid) %>
+        </td>
+        <td>
+          <%= orid.user_email %>
+        </td>
+        <td>
+          <%= orid.created_at %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
