@@ -9,16 +9,16 @@
       <div class="panel-heading"><%= orid.created_at %></div>
       <div class="panel-body">
         <h3>Objective</h3>
-        <%= orid.objective %>
+        <%= simple_format(orid.objective) %>
         <br>
         <h3>Reflective</h3>
-        <%= orid.reflective %>
+        <%= simple_format(orid.reflective) %>
         <br>
         <h3>Interpretive</h3>
-        <%= orid.interpretive %>
+        <%= simple_format(orid.interpretive) %>
         <br>
         <h3>Decisional</h3>
-        <%= orid.decisional %>
+        <%= simple_format(orid.decisional) %>
       </div>
       <div class="panel-footer">
         <%= link_to '編輯', edit_orid_path(orid), class: 'btn btn-sm btn-default' %>
