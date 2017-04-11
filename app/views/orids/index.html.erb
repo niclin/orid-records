@@ -6,7 +6,7 @@
   <div class="col-md-12">
   <% @orids.each do |orid| %>
     <div class="panel panel-default">
-      <div class="panel-heading"><%= orid.created_at %></div>
+      <div class="panel-heading"><%= link_to orid.created_at, orid_path(orid) %></div>
       <div class="panel-body">
         <h3>Objective</h3>
         <%= simple_format(orid.objective) %>
@@ -19,11 +19,6 @@
         <br>
         <h3>Decisional</h3>
         <%= simple_format(orid.decisional) %>
-      </div>
-      <div class="panel-footer">
-        <%= link_to '編輯', edit_orid_path(orid), class: 'btn btn-sm btn-default' %>
-        <%= link_to("刪除", orid_path(orid),    class: "btn btn-sm btn-default",
-          method: :delete, data: { confirm: "Are you sure?" } )%>
       </div>
     </div>
   <% end %>

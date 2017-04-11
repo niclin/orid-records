@@ -26,6 +26,7 @@ class OridsController < ApplicationController
   end
 
   def show
+    @orid = Orid.find(params[:id])
   end
 
   def destroy
