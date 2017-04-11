@@ -19,6 +19,13 @@ class OridsController < ApplicationController
   end
 
   def update
+    @orid = Orid.find(params[:id])
+
+    if @orid.update(orid_params)
+      redirect_to orid_path(@orid), notice: "修改成功"
+    else
+      render :edit
+    end
   end
 
   def edit
