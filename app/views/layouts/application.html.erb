@@ -2,6 +2,8 @@
 <html>
   <head>
     <title>OridRecords</title>
+    <meta name="description" content="Orid Records to help you record your knowledge" /> 
+    <meta name="viewport" content="width=640,user-scalable=no,maximum-scale=1.0">
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -9,6 +11,7 @@
   </head>
 
   <body>
+    <div class="container-bg"></div>  
    <div class="container-fluid">
     <%= render "common/navbar" %>
     <%= yield %>
