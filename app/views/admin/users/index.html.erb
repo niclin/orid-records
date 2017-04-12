@@ -1,27 +1,28 @@
-<h2> ORID列表 </h2>
+<h2>使用者列表</h2>
+
 <table class="table table-bordered">
   <thead>
     <tr>
-      <th>orid_id</th>
+      <th>user_id</th>
       <th>Name</th>
       <th>Email</th>
-      <th>建立日期</th>
+      <th>建立時間</th>
     </tr>
   </thead>
   <tbody>
-    <% @orids.each do |orid| %>
+    <% @users.each do |user| %>
       <tr>
         <td>
-          <%= link_to orid.id, orid_path(orid) %>
+          <%= user.id %>
         </td>
         <td>
-          <%= orid.user_name %>
+          <%= user.name %>
         </td>
         <td>
-          <%= orid.user_email %>
+          <%= user.email %>
         </td>
         <td>
-          <%= orid.created_at %>
+          <%= user.created_at %>
         </td>
       </tr>
     <% end %>

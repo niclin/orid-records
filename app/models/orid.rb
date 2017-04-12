@@ -7,6 +7,10 @@ class Orid < ApplicationRecord
 
   default_scope { order("created_at DESC") }
 
+  def user_name
+    owner.name
+  end
+
   def user_email
     owner.email
   end

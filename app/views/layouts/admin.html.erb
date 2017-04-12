@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>OridRecords</title>
+    <title>OridRecords 後台</title>
     <meta name="description" content="Orid Records to help you record your knowledge" />
     <meta name="viewport" content="width=640,user-scalable=no,maximum-scale=1.0">
     <%= csrf_meta_tags %>
@@ -14,7 +14,17 @@
     <div class="container-bg"></div>
    <div class="container-fluid">
     <%= render "common/navbar" %>
-    <%= yield %>
+    <div class="row">
+      <div class="col-md-2">
+        <ul class="nav nav-pills nav-stacked" style="max-width: 300px;">
+          <li> <%= link_to("Orids 列表", admin_orids_path) %> </li>
+          <li> <%= link_to("User 列表", admin_users_path) %> </li>
+        </ul>
+      </div>
+      <div class="col-md-10">
+        <%= yield %>
+      </div>
+    </div>
     </div>
   </body>
 </html>

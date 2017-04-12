@@ -1,10 +1,10 @@
-class Admin::OridsController < ApplicationController
+class Admin::UsersController < ApplicationController
   layout "admin"
 
   before_action :authenticate_user!
   before_action :admin_required
 
   def index
-    @orids = Orid.all
+    @users = User.all
   end
 end
