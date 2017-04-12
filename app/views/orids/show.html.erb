@@ -16,9 +16,11 @@
         <%= simple_format(@orid.decisional) %>
       </div>
       <div class="panel-footer">
-        <%= link_to '編輯', edit_orid_path(@orid), class: 'btn btn-sm btn-default' %>
-        <%= link_to("刪除", orid_path(@orid),    class: "btn btn-sm btn-default",
-          method: :delete, data: { confirm: "Are you sure?" } )%>
+        <% if @orid.editable_by?(current_user) %>
+          <%= link_to '編輯', edit_orid_path(@orid), class: 'btn btn-sm btn-default' %>
+          <%= link_to("刪除", orid_path(@orid),    class: "btn btn-sm btn-default",
+            method: :delete, data: { confirm: "Are you sure?" } )%>
+        <% end %>
         <%= link_to '返回', orids_path, class: 'btn btn-sm btn-default' %>
 
       </div>

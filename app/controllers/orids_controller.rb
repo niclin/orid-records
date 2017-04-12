@@ -11,7 +11,7 @@ class OridsController < ApplicationController
 
   def create
     @orid = Orid.new(orid_params)
-    @orid.user = current_user
+    @orid.owner = current_user
 
     @orid.save
 
@@ -19,7 +19,7 @@ class OridsController < ApplicationController
   end
 
   def update
-    @orid = Orid.find(params[:id])
+    @orid = current_user.orids.find(params[:id])
 
     if @orid.update(orid_params)
       redirect_to orid_path(@orid), notice: "修改成功"
@@ -37,7 +37,7 @@ class OridsController < ApplicationController
   end
 
   def destroy
-    @orid = Orid.find(params[:id])
+    @orid = current_user.orids.find(params[:id])
     @orid.destroy
 
     redirect_to orids_path
