@@ -3,7 +3,7 @@ class Orid < ApplicationRecord
 
   default_scope { order("created_at DESC") }
 
-  def user_email
-    user.email
+  def editable_by?(user)
+    self.user == user
   end
 end
