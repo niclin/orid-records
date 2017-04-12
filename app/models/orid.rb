@@ -1,17 +1,9 @@
 class Orid < ApplicationRecord
-  belongs_to :owner, class_name: "User", foreign_key: :user_id
-
-  def editable_by?(user)
-    user && user == owner
-  end
+  belongs_to :user
 
   default_scope { order("created_at DESC") }
 
-  def user_name
-    owner.name
-  end
-
-  def user_email
-    owner.email
+  def editable_by?(user)
+    self.user == user
   end
 end
