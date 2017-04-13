@@ -11,6 +11,7 @@ class OridsController < ApplicationController
 
   def create
     @orid = Orid.new(orid_params)
+    @orid.user = current_user
 
     @orid.save
 
