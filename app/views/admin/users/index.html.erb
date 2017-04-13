@@ -7,6 +7,7 @@
       <th>Name</th>
       <th>Email</th>
       <th>建立時間</th>
+      <th>發表數量</th>
     </tr>
   </thead>
   <tbody>
@@ -23,6 +24,9 @@
         </td>
         <td>
           <%= user.created_at %>
+        </td>
+        <td>
+          <%= user.orids.count %>
         </td>
       </tr>
     <% end %>
