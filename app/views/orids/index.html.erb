@@ -20,7 +20,7 @@
               <td>#</td>
               <td><%= link_to simple_format(truncate(orid.objective, length: 30 )), orid_path(orid) %></td>
               <td><%= orid.user.name %></td>
-              <td><%= orid.created_at %></td>
+              <td><%= orid.created_at.strftime('%Y-%m-%d %H:%M') %></td>
             </tr>
             <% end %>
           </tbody>
