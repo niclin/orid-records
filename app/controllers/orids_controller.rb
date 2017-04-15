@@ -13,9 +13,11 @@ class OridsController < ApplicationController
     @orid = Orid.new(orid_params)
     @orid.user = current_user
 
-    @orid.save
-
-    redirect_to orids_path
+    if @orid.save
+      redirect_to orids_path
+    else
+      render :new
+    end
   end
 
   def update
