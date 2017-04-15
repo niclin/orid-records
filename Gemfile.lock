@@ -205,7 +205,6 @@ PLATFORMS
 DEPENDENCIES
   awesome_rails_console
   bootstrap-sass
-  byebug
   coffee-rails (~> 4.2)
   devise
   hirb
@@ -214,6 +213,7 @@ DEPENDENCIES
   jquery-rails
   listen (~> 3.0.5)
   pg
+  pry
   pry-byebug
   pry-stack_explorer
   puma (~> 3.0)
