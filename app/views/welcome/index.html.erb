@@ -1,0 +1,12 @@
+<div class="alert alert-success text-center" role="alert">
+  <h4 class="alert-heading">紀錄一下今天的 ORID 吧？</h4>
+  <% unless @today_orids.count.zero? %>
+  <p>今天本網站總共新增了 <%= @today_orids.count %> 篇 ORID了，你還在怠惰嗎？</p>
+  <br>
+  <%= link_to '立即新增', new_orid_path, class: 'btn btn-primary' %>
+  <% else %>
+  <p>還沒有人新增今天的 ORID，快搶先當第一個吧！</p>
+  <% end %>
+</div>
+
+
