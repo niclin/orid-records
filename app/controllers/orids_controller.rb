@@ -2,7 +2,7 @@ class OridsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @orids = current_user.orids.paginate(:page => params[:page], :per_page => 10)
+    @orids = Orid.all.paginate(:page => params[:page], :per_page => 10)
   end
 
   def new
