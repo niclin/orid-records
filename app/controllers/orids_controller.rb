@@ -6,7 +6,12 @@ class OridsController < ApplicationController
   end
 
   def new
-    @orid = Orid.new
+    if current_user.can_use?
+      @orid = Orid.new
+    else
+      redirect_to :back
+      flash[:alert] = "你還不是付費會員，只能新增 7 篇內容哦"
+    end
   end
 
   def create

@@ -19,4 +19,8 @@ class User < ApplicationRecord
   def deomote
     update_columns(is_paid: false)
   end
+
+  def can_use?
+    return true unless is_paid == false && orids.size >= 7
+  end
 end
