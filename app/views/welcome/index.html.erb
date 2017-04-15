@@ -15,7 +15,7 @@
   <% @orids.each do |orid| %>
   <div class="col-md-3">
     <div class="panel panel-default">
-      <div class="panel-heading"><%= orid.created_at %></div>
+      <div class="panel-heading"><%= orid.created_at.strftime('建立時間： %Y-%m-%d %H:%M')  %></div>
       <div class="panel-body">
         <h3>Objective</h3>
         <%= simple_format(orid.objective) %>
