@@ -3,19 +3,17 @@
 <table class="table table-bordered">
   <thead>
     <tr>
-      <th>user_id</th>
       <th>Name</th>
       <th>Email</th>
-      <th>建立時間</th>
       <th>發表數量</th>
+      <th>建立時間</th>
+      <th>是否付費</th>
+      <th>操作</th>
     </tr>
   </thead>
   <tbody>
     <% @users.each do |user| %>
       <tr>
-        <td>
-          <%= user.id %>
-        </td>
         <td>
           <%= user.name %>
         </td>
@@ -23,11 +21,24 @@
           <%= user.email %>
         </td>
         <td>
+          <%= user.orids.count %>
+        </td>
+        <td>
           <%= user.created_at %>
         </td>
         <td>
-          <%= user.orids.count %>
+          <%= user.is_paid? %>
         </td>
+
+        <% unless user.is_paid? %>
+        <td>
+          <%= link_to '轉為付費', promote_admin_user_path(user), method: :patch %>
+        </td>
+        <% else %>
+        <td>
+          <%= link_to '降為免費', deomote_admin_user_path(user), method: :patch %>
+        </td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
