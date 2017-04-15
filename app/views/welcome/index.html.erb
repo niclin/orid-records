@@ -10,6 +10,7 @@
   <%= link_to '看看別人', orids_path, class: 'btn btn-default' %>
 </div>
 
+<% if user_signed_in? %>
 <div class="row">
   <% @orids.each do |orid| %>
   <div class="col-md-3">
@@ -32,3 +33,4 @@
   </div>
   <% end %>
 </div>
+<% end %>
