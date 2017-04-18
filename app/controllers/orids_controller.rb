@@ -2,19 +2,27 @@ class OridsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @orids = current_user.orids
+    @orids = Orid.all.paginate(:page => params[:page], :per_page => 10)
   end
 
   def new
-    @orid = Orid.new
+    if current_user.can_use?
+      @orid = Orid.new
+    else
+      redirect_to :back
+      flash[:alert] = "你還不是付費會員，只能新增 7 篇內容哦"
+    end
   end
 
   def create
     @orid = Orid.new(orid_params)
+    @orid.user = current_user
 
-    @orid.save
-
-    redirect_to orids_path
+    if @orid.save
+      redirect_to orids_path
+    else
+      render :new
+    end
   end
 
   def update

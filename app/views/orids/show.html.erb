@@ -1,7 +1,11 @@
 <div class="row">
   <div class="col-md-12">
     <div class="panel panel-default">
-      <div class="panel-heading"><%= @orid.created_at %></div>
+      <div class="panel-heading"><%= @orid.created_at.strftime('建立時間： %Y-%m-%d %H:%M') %>
+      <% unless current_user == @orid.user %>
+        <span class="pull-right">作者： <%= @orid.user.name %></span>
+      <% end %>
+      </div>
       <div class="panel-body">
         <h3>Objective</h3>
         <%= simple_format(@orid.objective) %>

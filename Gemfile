@@ -32,13 +32,15 @@ gem 'jbuilder', '~> 2.5'
 gem 'devise'
 gem 'simple_form'
 gem 'bootstrap-sass'
+gem 'will_paginate'
+gem 'awesome_rails_console'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platform: :mri
+  # Call 'pry' anywhere in the code to stop execution and get a debugger console
+  gem 'pry'
   gem 'sqlite3'
 end
 
@@ -57,3 +59,12 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+# Please clean up duplicated gems if any.
+# Feel free to remove gems that you don't want to use or if they conflict with other gem dependencies. (you might need to update .pryrc also)
+group :development, :test do
+  gem 'hirb'
+  gem 'hirb-unicode'
+  gem 'pry-byebug'
+  gem 'pry-stack_explorer'
+end

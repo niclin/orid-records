@@ -1,0 +1,36 @@
+<div class="alert alert-success text-center" role="alert">
+  <h4 class="alert-heading">紀錄一下今天的 ORID 吧？</h4>
+  <% unless @today_orids.count.zero? %>
+  <p>今天本網站總共新增了 <strong style="font-size: 25px;"><%= @today_orids.count %></strong> 篇ORID了，你還在怠惰嗎？</p>
+  <% else %>
+  <p>還沒有人新增今天的 ORID，快搶先當第一個吧！</p>
+  <% end %>
+  <br>
+  <%= link_to '立即新增', new_orid_path, class: 'btn btn-primary' %>
+  <%= link_to '看看別人', orids_path, class: 'btn btn-default' %>
+</div>
+
+<% if user_signed_in? %>
+<div class="row">
+  <% @orids.each do |orid| %>
+  <div class="col-md-3">
+    <div class="panel panel-default">
+      <div class="panel-heading"><%= orid.created_at.strftime('建立時間： %Y-%m-%d %H:%M') %></div>
+      <div class="panel-body">
+        <h3>Objective</h3>
+        <%= simple_format(orid.objective) %>
+        <br>
+        <h3>Reflective</h3>
+        <%= simple_format(orid.reflective) %>
+        <br>
+        <h3>Interpretive</h3>
+        <%= simple_format(orid.interpretive) %>
+        <br>
+        <h3>Decisional</h3>
+        <%= simple_format(orid.decisional) %>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>
+<% end %>
