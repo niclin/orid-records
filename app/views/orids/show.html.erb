@@ -26,8 +26,26 @@
             method: :delete, data: { confirm: "Are you sure?" } )%>
         <% end %>
         <%= link_to '返回', orids_path, class: 'btn btn-sm btn-default' %>
-
       </div>
     </div>
+
+    <%= simple_form_for [  @orid , Comment.new  ] do |f| %>
+    <div class="comment-box">
+      <div class="pull-left comment-text-field"  >
+
+        <%= f.text_field :message, :label => false, class:"form-control" %>
+
+      </div>
+      <div class="submit-button">
+            <%= f.submit "发送", :class => "btn  btn-grey" %>
+      </div>
+    </div>
+    <% end %>
+
+    <% @orid.comments.each do |comment| %>
+    <%= comment.message %>
+    <%= comment.user.name %>
+    <br>
+    <% end %>
   </div>
 </div>

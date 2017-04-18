@@ -3,7 +3,9 @@ Rails.application.routes.draw do
 
   resources :index, only: [:index]
 
-  resources :orids
+  resources :orids do
+    resources :comments
+  end
 
   namespace :admin do
     resources :orids

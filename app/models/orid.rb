@@ -1,5 +1,6 @@
 class Orid < ApplicationRecord
   belongs_to :user
+  has_many :comments
 
   validates :objective, :reflective, :interpretive, :decisional,  presence: true
 
