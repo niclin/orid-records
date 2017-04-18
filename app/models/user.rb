@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :orids
+  has_many :orders
 
   validates_presence_of :name
 

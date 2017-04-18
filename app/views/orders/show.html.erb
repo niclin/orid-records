@@ -1,0 +1,39 @@
+<div class="row">
+  <div class="col-md-12">
+
+    <h2> 訂單明細 </h2>
+
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>明細</th>
+          <th>數量</th>
+          <th>單價</th>
+        </tr>
+      </thead>
+      <% @order_items.each do |order_item| %>
+      <tbody>
+          <td><%= order_item.membership_name %></td>
+          <td><%= order_item.quantity %> year</td>
+          <td><%= order_item.price %></td>
+      </tbody>
+      <% end %>
+    </table>
+
+    <div class="total clearfix">
+      <span class="pull-right">
+        總計 <%= @order.total %> NTD
+      </span>
+    </div>
+
+     <hr>
+
+     <% if !@order.is_paid? %>
+        <div class="pull-right" style="padding: 10px;">
+          <%= link_to '付款', pay_order_path(@order.token),  class: "btn btn-lg btn-danger pull-right" %>
+        </div>
+     <% else %>
+       <p class="text-center">此訂單已完成付款</p>
+     <% end %>
+  </div>
+</div>

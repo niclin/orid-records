@@ -1,0 +1,44 @@
+<div class="row">
+   <div class="col-md-12">
+
+    <h2> 購買明細 </h2>
+
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Membership Name</th>
+          <th>Quantity</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <tbody>
+
+          <tr>
+            <td>
+              <%= "Premium" %>
+            </td>
+            <td>
+              <%= "1 year" %>
+            </td>
+            <td><%= "NTD $500" %></td>
+          </tr>
+
+      </tbody>
+    </table>
+
+    <div class="total clearfix">
+      <span class="pull-right">
+        總計 <%= "$500" %> NTD
+      </span>
+    </div>
+
+    <hr>
+
+      <%= simple_form_for @order do |f| %>
+        <div class="checkout">
+          <%= f.submit "生成訂單", class: "btn btn-lg btn-danger pull-right",
+                       data: { disable_with: "Submitting..." } %>
+        </div>
+      <% end %>
+  </div>
+</div>
