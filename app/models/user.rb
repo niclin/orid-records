@@ -22,6 +22,6 @@ class User < ApplicationRecord
   end
 
   def can_use?
-    return true unless is_paid == false && orids.size >= 7
+    return false if is_paid == false && orids.size >= 7
   end
 end
