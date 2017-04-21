@@ -15,7 +15,7 @@
         <div id="navbar" class="collapse navbar-collapse" aria-expanded="false">
             <ul class="nav navbar-nav navbar-right">
                 <li>
-                    <li><%= link_to("付費資訊", checkout_orders_path )%></li>
+                    <li><%#= link_to("付費資訊", checkout_orders_path )%></li>
                     <% if !current_user %>
                     <li><%= link_to("註冊", new_user_registration_path) %> </li>
                     <li><%= link_to("登入", new_user_session_path) %></li>
