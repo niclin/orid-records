@@ -32,3 +32,20 @@ set :passenger_restart_with_touch, true
 
 # Default value for keep_releases is 5
 # set :keep_releases, 5
+
+# Run Rake tasks with Capistrano on Remote Server
+# Sample: bundle exec cap staging deploy:invoke task=db:migrate
+namespace :deploy do
+  desc 'Invoke rake task on the server'
+  task :invoke do
+    fail 'no task provided' unless ENV['task']
+
+    on roles(:app) do
+      within release_path do
+        with rails_env: fetch(:rails_env) do
+          execute :rake, ENV['task']
+        end
+      end
+    end
+  end
+end
