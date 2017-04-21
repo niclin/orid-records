@@ -15,18 +15,19 @@
         <div id="navbar" class="collapse navbar-collapse" aria-expanded="false">
             <ul class="nav navbar-nav navbar-right">
                 <li>
-                    <li><a href="">目前經驗值: <%= current_user.exp %></a></li>
-                    <li><a href=""><%= render_paid_status(current_user) %></a></li>
-                    <li><%#= link_to("付費資訊", checkout_orders_path )%></li>
-                    <% if !current_user %>
-                    <li><%= link_to("註冊", new_user_registration_path) %> </li>
-                    <li><%= link_to("登入", new_user_session_path) %></li>
+                    <% unless user_signed_in? %>
+                        <li><%= link_to("註冊", new_user_registration_path) %> </li>
+                        <li><%= link_to("登入", new_user_session_path) %></li>
                     <% else %>
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <li><%#= link_to("付費資訊", checkout_orders_path )%></li>
+                        <li><a href="">目前經驗值: <%= current_user.exp %></a></li>
+                        <li><a href=""><%= render_paid_status(current_user) %></a></li>
+                        <li><a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             Hi!, <%= current_user.email %>
                             <b class="caret"></b>
                         </a>
+                        </li>
                         <ul class="dropdown-menu">
                           <% if current_user.admin? %>
                             <li>
