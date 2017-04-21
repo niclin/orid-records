@@ -17,5 +17,15 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :orders do
+    collection do
+      get :checkout
+    end
+
+    member do
+      get :pay
+    end
+  end
+
   root 'welcome#index'
 end

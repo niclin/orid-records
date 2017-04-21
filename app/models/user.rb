@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   has_many :orids
   has_many :comments
+  has_many :orders
 
   validates_presence_of :name
 
