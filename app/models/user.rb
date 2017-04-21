@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :orids
   has_many :comments
   has_many :orders
+  has_many :experience
 
   validates_presence_of :name
 
@@ -24,5 +25,9 @@ class User < ApplicationRecord
 
   def can_use?
     return true if is_paid == true || orids.size <= 7
+  end
+
+  def exp
+    experience.where(user_id: id).sum(:point)
   end
 end
