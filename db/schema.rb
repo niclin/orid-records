@@ -10,12 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170418135934) do
+ActiveRecord::Schema.define(version: 20170421183513) do
 
   create_table "comments", force: :cascade do |t|
     t.integer  "orid_id"
     t.text     "message"
     t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "experiences", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "orid_id"
+    t.integer  "point"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -40,7 +48,6 @@ ActiveRecord::Schema.define(version: 20170418135934) do
     t.index ["aasm_state"], name: "index_orders_on_aasm_state"
     t.index ["token"], name: "index_orders_on_token"
   end
->>>>>>> t132
 
   create_table "orids", force: :cascade do |t|
     t.integer  "user_id"
