@@ -6,6 +6,7 @@
       <th>Name</th>
       <th>Email</th>
       <th>發表數量</th>
+      <th>當前經驗值</th>
       <th>建立時間</th>
       <th>是否付費</th>
       <th>操作</th>
@@ -22,6 +23,9 @@
         </td>
         <td>
           <%= user.orids.count %>
+        </td>
+        <td>
+          <%= user.exp %>
         </td>
         <td>
           <%= user.created_at %>
