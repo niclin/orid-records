@@ -17,6 +17,10 @@ Rails.application.routes.draw do
     end
   end
 
+  namespace :account do
+    resources :users, only: [:show]
+  end
+
   resources :orders do
     collection do
       get :checkout
