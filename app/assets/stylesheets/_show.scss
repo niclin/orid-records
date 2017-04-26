@@ -1,0 +1,66 @@
+.comment-list {
+  margin-bottom: 10px;
+  position: relative;
+  background-color: #fff;
+  border-top: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+  border-left: 1px solid #ddd;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2);
+}
+.comment {
+  margin: 5px 0;
+  // border: 1px solid red;
+  clear: both;
+
+  &.by-others {
+    float: left;
+    div { float: left;}
+  }
+  &.by-self {
+    float: right;
+    div { float: right;}
+  }
+  
+  &_account, &_mesg {
+    margin: 5px;
+  }
+  &_mesg {
+    max-width: 300px;
+  }
+  &-clear {
+    clear: both;
+  }
+}
+
+.comment-box {
+  height: 40px;
+  border-bottom: 1px solid #ddd;
+
+  &_left-block, &_right-block {
+    float: left;
+    height: 100%;
+  }
+  &_left-block {
+    width: 80%;
+    .input-text {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  &_right-block {
+    width: 20%;
+    .btn-submit {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  
+  .input-text {
+    background-color: #fff;
+    border: none;
+  }
+  .btn-submit {
+    background-color: #dfdfdf;
+    border: none;
+  }
+}
