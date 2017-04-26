@@ -1,3 +1,17 @@
+# == Schema Information
+#
+# Table name: orders
+#
+#  id         :integer          not null, primary key
+#  user_id    :integer
+#  total      :integer          default(0)
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  token      :string
+#  is_paid    :boolean          default(FALSE)
+#  aasm_state :string           default("pending")
+#
+
 class Order < ApplicationRecord
   belongs_to :user
   has_many :items, class_name: "OrderItem", dependent: :destroy
