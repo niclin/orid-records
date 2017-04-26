@@ -7,7 +7,7 @@
   <% end %>
   <br>
   <%= link_to '立即新增', new_orid_path, class: 'btn btn-primary' %>
-  <%= link_to '我的所有ORID', account_user_path(current_user), class: 'btn btn-warning' %>
+  <%= link_to '我的所有ORID', account_user_path(current_user), class: 'btn btn-warning' if user_signed_in? %>
   <%= link_to '看看別人', orids_path, class: 'btn btn-default' %>
 </div>
 
