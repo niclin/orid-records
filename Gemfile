@@ -19,6 +19,8 @@ gem 'coffee-rails', '~> 4.2'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
+gem 'pg'
+
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
@@ -42,7 +44,6 @@ gem "aasm"
 group :development, :test do
   # Call 'pry' anywhere in the code to stop execution and get a debugger console
   gem 'pry'
-  gem 'sqlite3'
 end
 
 group :development do
@@ -56,10 +57,7 @@ group :development do
   gem "capistrano-rvm"
   gem "capistrano-rails"
   gem "capistrano-passenger"
-end
-
-group :production do
-  gem 'pg'
+  gem "capistrano-db-tasks", require: false, github: "growthschool/capistrano-db-tasks", branch: "develop"
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
