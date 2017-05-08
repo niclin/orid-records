@@ -48,8 +48,4 @@ class User < ApplicationRecord
   def can_use?
     return true if is_paid == true || orids.size <= 7
   end
-
-  def exp
-    experience.where(user_id: id).sum(:point)
-  end
 end
