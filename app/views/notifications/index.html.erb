@@ -1,0 +1,5 @@
+<% @notifications.each do |notification| %>
+  <%= render_user_profile_link(notification.actor) %> 說了你讚：<%= link_to simple_format(truncate(notification.notifiable.orid.objective, length: 20 )), orid_path(notification.notifiable.orid) %>
+<% end %>
+
+

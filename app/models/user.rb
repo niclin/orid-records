@@ -30,6 +30,7 @@ class User < ApplicationRecord
   has_many :comments
   has_many :orders
   has_many :experience
+  has_many :notifications, as: :notifiable, dependent: :destroy
 
   validates_presence_of :name
 

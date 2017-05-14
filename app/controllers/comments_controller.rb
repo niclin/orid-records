@@ -7,6 +7,11 @@ class CommentsController < ApplicationController
     @comment.user = current_user
 
     if @comment.save
+      @orid.watchers.each do |user|
+        if user != current_user
+          Notification.create(recipient: user , actor: current_user, action: "create", notifiable: @comment )
+        end
+      end
       flash[:notice] = "成功留言"
       redirect_to orid_path(@orid)
     else
