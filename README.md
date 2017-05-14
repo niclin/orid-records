@@ -14,3 +14,9 @@ Using postgres
 ```
 cap production db:pull
 ```
+
+## Remote invoke task
+
+```
+cap production deploy:invoke task=migration:task_some_name
+```
