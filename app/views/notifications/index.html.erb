@@ -3,6 +3,7 @@
     <div class="panel panel-default">
       <div class="panel-heading">留言通知中心</div>
       <div class="panel-body">
+        <%= "邊緣人，目前沒人給你留言。" if @notifications.empty? %>
         <% @notifications.each do |notification| %>
         <%= render_user_profile_link(notification.actor) %>
         在你的
