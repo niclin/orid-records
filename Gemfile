@@ -35,6 +35,7 @@ gem 'devise'
 gem 'simple_form'
 gem 'bootstrap-sass'
 gem 'will_paginate'
+gem 'will_paginate-bootstrap'
 gem 'awesome_rails_console'
 gem 'aasm'
 
