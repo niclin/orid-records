@@ -31,4 +31,11 @@ class Orid < ApplicationRecord
   def generate_exp_ponit
     Experience.create(user_id: user.id, orid_id: id, point: 50)
   end
+
+  def watchers
+    commenter_ids = comments.pluck(:user_id).uniq
+    commenter_ids << self.user_id
+    commenter_ids = commenter_ids.uniq
+    User.where(:id => commenter_ids)
+  end
 end

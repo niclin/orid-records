@@ -36,7 +36,7 @@ gem 'simple_form'
 gem 'bootstrap-sass'
 gem 'will_paginate'
 gem 'awesome_rails_console'
-gem "aasm"
+gem 'aasm'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
