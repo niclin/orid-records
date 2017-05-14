@@ -1,5 +1,17 @@
-<% @notifications.each do |notification| %>
-  <%= render_user_profile_link(notification.actor) %> 說了你讚：<%= link_to simple_format(truncate(notification.notifiable.orid.objective, length: 20 )), orid_path(notification.notifiable.orid) %>
-<% end %>
-
-
+<div class="row">
+  <div class="col-md-8 col-centered">
+    <div class="panel panel-default">
+      <div class="panel-heading">留言通知中心</div>
+      <div class="panel-body">
+        <% @notifications.each do |notification| %>
+        <%= render_user_profile_link(notification.actor) %>
+        在你的
+        <%= link_to truncate(notification.notifiable.orid.objective, length: 20 ), orid_path(notification.notifiable.orid) %>
+        底下留了言
+        「<%= notification.notifiable.message %>」
+        <hr>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
