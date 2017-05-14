@@ -4,6 +4,10 @@ module NotificationsHelper
   end
 
   def render_currnet_user_notify_count
-    Notification.where(recipient: current_user).unread.count
+    count = Notification.where(recipient: current_user).unread.count
+
+    return '' if count.zero?
+
+    content_tag(:span, count, id: "notification", class: "notice notice--color")
   end
 end
