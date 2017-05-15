@@ -6,7 +6,7 @@
         <%= "邊緣人，目前沒人給你留言。" if @notifications.empty? %>
         <% @notifications.each do |notification| %>
         <%= render_user_profile_link(notification.actor) %>
-        在你的
+        在
         <%= link_to truncate(notification.notifiable.orid.objective, length: 20 ), orid_path(notification.notifiable.orid) %>
         底下留了言
         「<%= notification.notifiable.message %>」
