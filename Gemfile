@@ -38,6 +38,9 @@ gem 'will_paginate'
 gem 'will_paginate-bootstrap'
 gem 'awesome_rails_console'
 gem 'aasm'
+gem 'carrierwave'
+gem 'mini_magick'
+
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
