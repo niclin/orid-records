@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   end
 
   namespace :account do
-    resources :users, only: [:show]
+    resources :users, only: [:index, :update, :show]
   end
 
   resources :orders do

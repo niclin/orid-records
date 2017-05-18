@@ -33,13 +33,13 @@
 
   <div class="col-md-4">
     <div class="comment-list">
-      <%= simple_form_for [  @orid , Comment.new  ] do |f| %>
+      <%= simple_form_for [ @orid , Comment.new ] do |f| %>
       <div class="comment-box">
         <div class="comment-box_left-block comment-text-field"  >
           <%= f.text_field :message, :label => false, class:"input-text" %>
         </div>
         <div class="comment-box_right-block submit-button">
-          <%= f.submit "发送", :class => "btn-submit" %>
+          <%= f.submit "發送", :class => "btn-submit" %>
         </div>
       </div>
       <% end %>
