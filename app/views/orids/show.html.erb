@@ -1,10 +1,11 @@
 <div class="row">
+
   <div class="col-md-8">
     <div class="panel panel-default">
       <div class="panel-heading"><%= @orid.created_at.strftime('建立時間： %Y-%m-%d %H:%M') %>
-      <% unless current_user == @orid.user %>
+        <% unless current_user == @orid.user %>
         <span class="pull-right">作者： <%= @orid.user.name %></span>
-      <% end %>
+        <% end %>
       </div>
       <div class="panel-body">
         <h3>Objective</h3>
@@ -21,51 +22,38 @@
       </div>
       <div class="panel-footer">
         <% if @orid.editable_by?(current_user) %>
-          <%= link_to '編輯', edit_orid_path(@orid), class: 'btn btn-sm btn-default' %>
-          <%= link_to("刪除", orid_path(@orid),    class: "btn btn-sm btn-default",
-            method: :delete, data: { confirm: "Are you sure?" } )%>
+        <%= link_to '編輯', edit_orid_path(@orid), class: 'btn btn-sm btn-default' %>
+        <%= link_to("刪除", orid_path(@orid),    class: "btn btn-sm btn-default",
+        method: :delete, data: { confirm: "Are you sure?" } )%>
         <% end %>
         <%= link_to '返回', orids_path, class: 'btn btn-sm btn-default' %>
       </div>
     </div>
   </div>
+
   <div class="col-md-4">
     <div class="comment-list">
-        <%= simple_form_for [  @orid , Comment.new  ] do |f| %>
-        <div class="comment-box">
-          <div class="comment-box_left-block comment-text-field"  >
-
-            <%= f.text_field :message, :label => false, class:"input-text" %>
-
-          </div>
-          <div class="comment-box_right-block submit-button">
-                <%= f.submit "发送", :class => "btn-submit" %>
-          </div>
+      <%= simple_form_for [  @orid , Comment.new  ] do |f| %>
+      <div class="comment-box">
+        <div class="comment-box_left-block comment-text-field"  >
+          <%= f.text_field :message, :label => false, class:"input-text" %>
         </div>
-        <% end %>
-
-        <!-- 其他人說話時顯示左方，也就是增加關鍵classname: by-others -->
-        <div class="comment by-others">
-          <div class="comment_account">
-            <i class="material-icons md-48">account_circle</i>
-          </div>
-          <div class="comment_mesg">其他人說話</div>
+        <div class="comment-box_right-block submit-button">
+          <%= f.submit "发送", :class => "btn-submit" %>
         </div>
-        
-        <!-- 當是自己說話時顯示右方，也就是加classname: by-self -->
-        <% @orid.comments.each do |comment| %>
-          <div class="comment by-self">
-            <div class="comment_account">
-              <i class="material-icons md-48" title="<%= comment.user.name %>">account_circle</i>
-            </div>
-            <div class="comment_mesg"><%= comment.message %></div>
-          </div>
-        <% end %>
+      </div>
+      <% end %>
 
-        <div class="comment-clear"></div>
+      <!-- 當是自己說話時顯示右方，也就是加classname: by-self -->
+      <% @orid.comments.each do |comment| %>
+      <div class="comment <%= comment.user == current_user ? 'by-self' : 'by-others'%>">
+        <div class="comment_account">
+          <i class="material-icons md-48" title="<%= comment.user.name %>">account_circle</i>
+        </div>
+        <div class="comment_mesg"><%= comment.message %></div>
+      </div>
+      <% end %>
+      <div class="comment-clear"></div>
     </div>
-    
-    
   </div>
-    
 </div>
