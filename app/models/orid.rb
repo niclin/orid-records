@@ -15,7 +15,7 @@
 class Orid < ApplicationRecord
   belongs_to :user
   has_many :comments
-  has_one :experience
+  has_one :experience, dependent: :destroy
 
   after_create :generate_exp_ponit
 
