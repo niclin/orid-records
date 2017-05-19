@@ -41,6 +41,7 @@ gem 'aasm'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'reverse_markdown'
+gem 'bootstrap-wysihtml5-rails'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
