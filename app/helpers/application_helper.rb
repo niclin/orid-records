@@ -6,4 +6,12 @@ module ApplicationHelper
       content_tag(:span, "免費會員", :class => "label label-default")
     end
   end
+
+  def render_user_avatar
+    if current_user.avatar.present?
+      image_tag(current_user.avatar.url)
+    else
+      '暫無頭像'
+    end
+  end
 end

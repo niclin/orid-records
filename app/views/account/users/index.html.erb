@@ -3,6 +3,7 @@
   <%= simple_form_for [:account,@user] do |f| %>
   <div class="input-block">
     <span>頭像</span>
+    <%= render_user_avatar %>
     <div class="user-img-upload">
       <%= f.input :avatar, label: false %>
     </div>
