@@ -1,5 +1,4 @@
 <div class="row">
-
   <div class="col-md-8">
     <div class="panel panel-default">
       <div class="panel-heading"><%= @orid.created_at.strftime('建立時間： %Y-%m-%d %H:%M') %>
@@ -22,12 +21,12 @@
       </div>
       <div class="panel-footer">
         <% if @orid.editable_by?(current_user) %>
-        <%= link_to '編輯', edit_orid_path(@orid), class: 'btn btn-sm btn-default' %>
-        <%= link_to("刪除", orid_path(@orid),    class: "btn btn-sm btn-default",
-        method: :delete, data: { confirm: "Are you sure?" } )%>
+          <%= link_to '編輯', edit_orid_path(@orid), class: 'btn btn-sm btn-default' %>
+          <%= link_to("刪除", orid_path(@orid),    class: "btn btn-sm btn-default",
+          method: :delete, data: { confirm: "Are you sure?" } )%>
+          <%= link_to 'markdown', markdown_account_orid_path, class: 'btn btn-default pull-right' %>
         <% end %>
         <%= link_to '返回', orids_path, class: 'btn btn-sm btn-default' %>
-        <%= link_to 'markdown', markdown_account_orid_path, class: 'btn btn-default pull-right' %>
       </div>
     </div>
   </div>
