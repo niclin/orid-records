@@ -29,7 +29,7 @@ class Orid < ApplicationRecord
   end
 
   def generate_exp_ponit
-    Experience.create(user_id: user.id, orid_id: id, point: 50)
+    build_experience(user: user, point: 50).save
   end
 
   def watchers
