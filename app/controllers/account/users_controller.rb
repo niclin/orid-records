@@ -14,10 +14,6 @@ class Account::UsersController < ApplicationController
     end
   end
 
-  def show
-    @orids = current_user.orids
-  end
-
   private
 
   def user_params

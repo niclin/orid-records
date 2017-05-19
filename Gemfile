@@ -40,7 +40,7 @@ gem 'awesome_rails_console'
 gem 'aasm'
 gem 'carrierwave'
 gem 'mini_magick'
-
+gem 'reverse_markdown'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

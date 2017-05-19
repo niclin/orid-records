@@ -19,6 +19,11 @@ Rails.application.routes.draw do
 
   namespace :account do
     resources :users, only: [:index, :update, :show]
+    resources :orids do
+      member do
+        get :markdown
+      end
+    end
   end
 
   resources :orders do
