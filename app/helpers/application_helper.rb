@@ -14,4 +14,8 @@ module ApplicationHelper
       '暫無頭像'
     end
   end
+
+  def render_orid_title_link(orid)
+    link_to simple_format(truncate(Rails::Html::FullSanitizer.new.sanitize(orid.objective), length: 30 )), orid_path(orid)
+  end
 end
