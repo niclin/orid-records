@@ -8,7 +8,6 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    resources :orids
     resources :users do
       member do
         patch :promote

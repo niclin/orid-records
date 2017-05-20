@@ -40,7 +40,7 @@
                         <ul class="dropdown-menu">
                           <% if current_user.admin? %>
                             <li>
-                              <%= link_to("Admin 後台", admin_orids_path ) %>
+                              <%= link_to("Admin 後台", admin_users_path ) %>
                             </li>
                           <% end %>
                             <li> <%= link_to("帳號設定", edit_user_registration_path )%></li>
