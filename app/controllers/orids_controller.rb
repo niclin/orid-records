@@ -1,5 +1,6 @@
 class OridsController < ApplicationController
   before_action :authenticate_user!
+  impressionist :actions=>[:show]
 
   def index
     @orids = Orid.all.paginate(:page => params[:page], :per_page => 10)

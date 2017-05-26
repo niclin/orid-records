@@ -1,17 +1,3 @@
-# == Schema Information
-#
-# Table name: orids
-#
-#  id           :integer          not null, primary key
-#  user_id      :integer
-#  objective    :text
-#  reflective   :text
-#  interpretive :text
-#  decisional   :text
-#  created_at   :datetime         not null
-#  updated_at   :datetime         not null
-#
-
 class Orid < ApplicationRecord
   belongs_to :user
   has_many :comments
@@ -23,6 +9,7 @@ class Orid < ApplicationRecord
 
   default_scope { order("created_at DESC") }
 
+  is_impressionable
 
   def editable_by?(user)
     self.user == user
@@ -39,3 +26,17 @@ class Orid < ApplicationRecord
     User.where(:id => commenter_ids)
   end
 end
+
+# == Schema Information
+#
+# Table name: orids
+#
+#  id           :integer          not null, primary key
+#  user_id      :integer
+#  objective    :text
+#  reflective   :text
+#  interpretive :text
+#  decisional   :text
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#
