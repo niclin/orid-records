@@ -4,6 +4,7 @@ class OridsController < ApplicationController
 
   def index
     @orids = Orid.all.paginate(:page => params[:page], :per_page => 10)
+    set_page_title "全部 Orid"
   end
 
   def new
@@ -42,6 +43,7 @@ class OridsController < ApplicationController
 
   def show
     @orid = Orid.find(params[:id])
+    set_page_title "ORID - #{@orid.objective}"
   end
 
   def destroy

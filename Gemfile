@@ -43,6 +43,7 @@ gem 'mini_magick'
 gem 'reverse_markdown'
 gem 'bootstrap-wysihtml5-rails'
 gem 'impressionist'
+gem 'seo_helper', '~> 1.0'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
