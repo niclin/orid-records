@@ -1,38 +1,63 @@
-<h1>行情对比</h1>
-
-  <table class="table">
-    <thead>
-     <tr>
-        <th>名称</th>
-        <th>云币价格</th>
-        <th>备注</th>
-      </tr>
-    </thead>
-    <tbody>
-
-        <tr>
-          <td>zec</td>
-          <td><%= @zec_yunbi %></td>
-          <td><%= @usdt_zec %></td>
-        </tr>
-
-        <tr>
-          <td>etc</td>
-          <td><%= @etc_yunbi %></td>
-          <td><%= @usdt_etc %></td>
-        </tr>
-
-        <tr>
-          <td>eth</td>
-          <td><%= @eth_yunbi %></td>
-          <td><%= @usdt_eth %></td>
-        </tr>
-
-        <tr>
-          <td>sc</td>
-          <td><%= @sc_yunbi %></td>
-          <td><%= @usdt_sc %></td>
-        </tr>
-
-    </tbody>
-  </table>
+<div class="row">
+  <div class="col-md-6 col-centered">
+    <div class="panel panel-default">
+      <div class="panel-heading">虛擬幣行情追蹤</div>
+      <div class="panel-body">
+        <div class="dropdown clearfix pull-right">
+          <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenuDivider" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+          幣別
+          <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuDivider">
+            <li>
+              <%= link_to("TWD", item_trade_tracking_index_path(currency: "TWD")) %>
+            </li>
+            <li>
+              <%= link_to("CNY", item_trade_tracking_index_path(currency: "CNY")) %>
+            </li>
+          </ul>
+        </div>
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>名稱</th>
+              <th>雲幣價格</th>
+              <th>P網價格</th>
+              <th>Maicoin</th>
+              <th>幣托</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>BTC</td>
+              <td><%= @btc_yunbi.round(2) %> <%= @currency %></td>
+              <td><%= @usdt_btc.round(2) %> <%= @currency %></td>
+              <td><%= @btc_maicoin.round(2) %> <%= @currency %></td>
+              <td><%= @btc_bitoex.round(2) %> <%= @currency %></td>
+            </tr>
+            <tr>
+              <td>ETH</td>
+              <td><%= @eth_yunbi.round(2) %> <%= @currency %></td>
+              <td><%= @usdt_eth.round(2) %> <%= @currency %></td>
+            </tr>
+            <tr>
+              <td>ZEC</td>
+              <td><%= @zec_yunbi.round(2) %> <%= @currency %></td>
+              <td><%= @usdt_zec.round(2) %> <%= @currency %></td>
+            </tr>
+            <tr>
+              <td>SC</td>
+              <td><%= @sc_yunbi.round(2) %> <%= @currency %></td>
+              <td><%= @usdt_sc.round(2) %> <%= @currency %></td>
+            </tr>
+            <tr>
+              <td>DGB</td>
+              <td>暫無資料</td>
+              <td><%= @usdt_dgb.round(2) %> <%= @currency %></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
