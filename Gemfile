@@ -44,6 +44,10 @@ gem 'reverse_markdown'
 gem 'bootstrap-wysihtml5-rails'
 gem 'impressionist'
 gem 'seo_helper', '~> 1.0'
+gem 'poloniex', :git => "https://github.com/developerby/poloniex.git"
+gem 'google_currency'
+gem 'peatio_client'
+gem 'money'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

@@ -25,6 +25,10 @@ Rails.application.routes.draw do
     end
   end
 
+  namespace :item do
+    resources :trade_tracking, only: [:index]
+  end
+
   resources :orders do
     collection do
       get :checkout

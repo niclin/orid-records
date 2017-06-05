@@ -8,6 +8,7 @@
   <br>
   <%= link_to '立即新增', new_orid_path, class: 'btn btn-primary' %>
   <%= link_to '我的所有ORID', account_orids_path, class: 'btn btn-warning' if user_signed_in? %>
+  <%= link_to '立即追蹤虛擬幣（試用）', item_trade_tracking_index_path, class: 'btn btn-default' if user_signed_in? %>
   <%= link_to '看看別人', orids_path, class: 'btn btn-default' %>
 </div>
 
