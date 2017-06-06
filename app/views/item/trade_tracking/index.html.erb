@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col-md-6 col-centered">
+  <div class="col-md-8 col-centered">
     <div class="panel panel-default">
       <div class="panel-heading">虛擬幣行情追蹤</div>
       <div class="panel-body">
@@ -21,39 +21,41 @@
           <thead>
             <tr>
               <th>名稱</th>
-              <th>雲幣價格</th>
               <th>P網價格</th>
+              <th>雲幣價格</th>
               <th>Maicoin</th>
               <th>幣托</th>
+              <th>OKcoin</th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td>BTC</td>
-              <td><%= @btc_yunbi.round(2) %> <%= @currency %></td>
               <td><%= @usdt_btc.round(2) %> <%= @currency %></td>
+              <td><%= @btc_yunbi.round(2) %> <%= @currency %></td>
               <td><%= @btc_maicoin.round(2) %> <%= @currency %></td>
               <td><%= @btc_bitoex.round(2) %> <%= @currency %></td>
+              <td><%= @btc_okcoin.round(2) %> <%= @currency %></td>
             </tr>
             <tr>
               <td>ETH</td>
-              <td><%= @eth_yunbi.round(2) %> <%= @currency %></td>
               <td><%= @usdt_eth.round(2) %> <%= @currency %></td>
+              <td><%= @eth_yunbi.round(2) %> <%= @currency %></td>
             </tr>
             <tr>
               <td>ZEC</td>
-              <td><%= @zec_yunbi.round(2) %> <%= @currency %></td>
               <td><%= @usdt_zec.round(2) %> <%= @currency %></td>
+              <td><%= @zec_yunbi.round(2) %> <%= @currency %></td>
             </tr>
             <tr>
               <td>SC</td>
-              <td><%= @sc_yunbi.round(2) %> <%= @currency %></td>
               <td><%= @usdt_sc.round(2) %> <%= @currency %></td>
+              <td><%= @sc_yunbi.round(2) %> <%= @currency %></td>
             </tr>
             <tr>
               <td>DGB</td>
-              <td>暫無資料</td>
               <td><%= @usdt_dgb.round(2) %> <%= @currency %></td>
+              <td>暫無資料</td>
             </tr>
           </tbody>
         </table>

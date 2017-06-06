@@ -48,6 +48,7 @@ gem 'poloniex', :git => "https://github.com/developerby/poloniex.git"
 gem 'google_currency'
 gem 'rest-client'
 gem 'money'
+gem 'actionpack-action_caching'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
