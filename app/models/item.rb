@@ -6,7 +6,7 @@ class Item < ApplicationRecord
 
     unless user.has_item?(self)
       transaction do
-        buy_records.build(user: user, start_date: Time.zone.now, end_date: Time.zone.now + 3.days).save
+        buy_records.build(user: user, point: point, start_date: Time.zone.now, end_date: Time.zone.now + 3.days).save
       end
     end
   end

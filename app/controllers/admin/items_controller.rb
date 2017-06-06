@@ -23,12 +23,17 @@ class Admin::ItemsController < ApplicationController
   end
 
   def edit
+    @item = Item.find(params[:id])
   end
 
   def update
-  end
+    @item = Item.find(params[:id])
 
-  def destroy
+    if @item.update(item_params)
+      redirect_to :back
+    else
+      render :edit
+    end
   end
 
   private

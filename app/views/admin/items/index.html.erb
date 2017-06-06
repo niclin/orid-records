@@ -13,6 +13,7 @@
               <td>摘要</td>
               <td>所需點數</td>
               <td>綁定事件</td>
+              <td>編輯</td>
             </tr>
           </thead>
           <tbody>
@@ -23,6 +24,7 @@
               <td><%= item.description %></td>
               <td><%= item.point %></td>
               <td><%= item.event %></td>
+              <td><%= link_to '編輯', edit_admin_item_path(item), class: 'btn btn-default' %></td>
             </tr>
             <% end %>
           </tbody>

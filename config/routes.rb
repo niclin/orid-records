@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    resources :items
+    resources :items, except: [:destroy, :show]
     resources :users do
       member do
         patch :promote

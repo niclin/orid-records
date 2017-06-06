@@ -32,7 +32,7 @@ class User < ApplicationRecord
   end
 
   def exp
-    experience.where(user_id: id).sum(:point) - Item.where(id: buy_records.pluck(:item_id)).sum(:point)
+    experience.where(user_id: id).sum(:point) - buy_records.sum(:point)
   end
 
   def has_item?(item)
