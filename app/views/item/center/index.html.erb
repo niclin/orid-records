@@ -9,6 +9,7 @@
               <td>商品名稱</td>
               <td>摘要</td>
               <td>所需點數</td>
+              <td>已購買人數</td>
               <td>立即購買</td>
             </tr>
           </thead>
@@ -19,6 +20,7 @@
               <td><%= item.name %></td>
               <td><%= item.description %></td>
               <td><%= item.point %></td>
+              <td><%= BuyRecord.where(item: item).count %></td>
               <td>
               <% unless current_user.has_item?(item) %>
                 <%= link_to 'Buy', buy_item_center_path(item), class: 'btn btn-default', method: :post, data: { confirm: "你確定買#{item.name}嗎？他將會扣除經驗值#{item.point}點"} %>
