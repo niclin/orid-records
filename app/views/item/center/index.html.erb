@@ -21,7 +21,13 @@
               <td><%= item.description %></td>
               <td><%= item.point %></td>
               <td><%= item.event %></td>
-              <td><%= link_to 'Buy' %></td>
+              <td>
+              <% unless current_user.has_item?(item) %>
+                <%= link_to 'Buy', buy_item_center_path(item), class: 'btn btn-default', method: :post, data: { confirm: "你確定買#{item.name}嗎？他將會扣除經驗值#{item.point}點"} %>
+              <% else %>
+                已購買
+              <% end %>
+              </td>
             </tr>
             <% end %>
           </tbody>
