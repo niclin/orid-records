@@ -8,7 +8,7 @@
   <br>
   <%= link_to '立即新增', new_orid_path, class: 'btn btn-primary' %>
   <%= link_to '我的所有ORID', account_orids_path, class: 'btn btn-warning' if user_signed_in? %>
-  <%= link_to '立即追蹤虛擬幣（試用）', item_trade_tracking_index_path, class: 'btn btn-default' if user_signed_in? %>
+  <%= link_to '立即追蹤虛擬幣（試用）', item_trade_tracking_index_path, id: 'trade_track', class: 'btn btn-default' if user_signed_in? %>
   <%= link_to '看看別人', orids_path, class: 'btn btn-default' %>
 </div>
 
@@ -37,3 +37,21 @@
   <% end %>
 </div>
 <% end %>
+
+
+<script>
+$(document).on('click', '#trade_track', function() {
+   $.blockUI({
+    message:  '<h3>獲取數據中，請稍候…</h3>',
+    css: {
+            border: 'none',
+            padding: '15px',
+            backgroundColor: '#000',
+            '-webkit-border-radius': '10px',
+            '-moz-border-radius': '10px',
+            opacity: .5,
+            color: '#fff'
+        }
+      });
+});
+</script>

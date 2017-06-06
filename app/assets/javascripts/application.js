@@ -14,4 +14,24 @@
 //= require jquery_ujs
 //= require bootstrap-sprockets
 //= require bootstrap-wysihtml5
+//= require jquery.blockUI
 //= require_tree .
+
+$(document).ready(function() {
+  if ( $("#trade_tracking-index").length > 0 ) {
+    window.onbeforeunload = function() {
+     $.blockUI({
+      message:  '<h3>獲取數據中，請稍候…</h3>',
+      css: {
+              border: 'none',
+              padding: '15px',
+              backgroundColor: '#000',
+              '-webkit-border-radius': '10px',
+              '-moz-border-radius': '10px',
+              opacity: .5,
+              color: '#fff'
+          }
+        });
+    }
+  }
+})
