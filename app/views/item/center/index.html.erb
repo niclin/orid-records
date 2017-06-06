@@ -1,0 +1,36 @@
+<div class="row">
+  <div class="col-md-8 col-centered">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <td>#</td>
+              <td>商品名稱</td>
+              <td>摘要</td>
+              <td>所需點數</td>
+              <td>立即購買</td>
+            </tr>
+          </thead>
+          <tbody>
+            <% @items.each do |item| %>
+            <tr>
+              <td>#</td>
+              <td><%= item.name %></td>
+              <td><%= item.description %></td>
+              <td><%= item.point %></td>
+              <td>
+              <% unless current_user.has_item?(item) %>
+                <%= link_to 'Buy', buy_item_center_path(item), class: 'btn btn-default', method: :post, data: { confirm: "你確定買#{item.name}嗎？他將會扣除經驗值#{item.point}點"} %>
+              <% else %>
+                已購買
+              <% end %>
+              </td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

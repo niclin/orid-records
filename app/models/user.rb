@@ -9,6 +9,7 @@ class User < ApplicationRecord
   has_many :orders
   has_many :experience
   has_many :notifications, as: :notifiable, dependent: :destroy
+  has_many :buy_records
 
   validates_presence_of :name
 
@@ -31,7 +32,15 @@ class User < ApplicationRecord
   end
 
   def exp
-    experience.where(user_id: id).sum(:point)
+    experience.where(user_id: id).sum(:point) - Item.where(id: buy_records.pluck(:item_id)).sum(:point)
+  end
+
+  def has_item?(item)
+    buy_records.where(item: item).exists?
+  end
+
+  def has_event?(event)
+    Item.where(id: buy_records.pluck(:item_id), event: event).exists?
   end
 end
 

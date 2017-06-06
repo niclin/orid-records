@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
+    resources :items
     resources :users do
       member do
         patch :promote
@@ -26,6 +27,11 @@ Rails.application.routes.draw do
   end
 
   namespace :item do
+    resources :center, only: [:index] do
+      member do
+        post :buy
+      end
+    end
     resources :trade_tracking, only: [:index]
   end
 

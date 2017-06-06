@@ -1,6 +1,7 @@
 class Item::TradeTrackingController < ApplicationController
   before_action :authenticate_user!
   caches_action :index, expires_in: 20.seconds
+  before_action :item_permission
 
   def index
 
@@ -51,5 +52,14 @@ class Item::TradeTrackingController < ApplicationController
     @btc_okcoin = data_okcoin["ticker"]["buy"].to_f * convert_form_cny
 
     set_page_title "虛擬幣追蹤行情"
+  end
+
+  private
+
+  def item_permission
+    unless current_user.has_event?(controller_name)
+      redirect_to :back
+      flash[:warning] = "你沒有權限使用，請購買相關功能"
+    end
   end
 end

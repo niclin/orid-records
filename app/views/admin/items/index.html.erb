@@ -1,0 +1,33 @@
+<div class="row">
+  <div class="col-md-8 col-centered">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <div>
+          <%= link_to '新增商品', new_admin_item_path, class: 'btn btn-primary pull-right' %>
+        </div>
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <td>#</td>
+              <td>商品名稱</td>
+              <td>摘要</td>
+              <td>所需點數</td>
+              <td>綁定事件</td>
+            </tr>
+          </thead>
+          <tbody>
+            <% @items.each do |item| %>
+            <tr>
+              <td>#</td>
+              <td><%= item.name %></td>
+              <td><%= item.description %></td>
+              <td><%= item.point %></td>
+              <td><%= item.event %></td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
