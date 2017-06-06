@@ -1,4 +1,6 @@
 class Orid < ApplicationRecord
+  STATUS = ["public", "private"]
+
   belongs_to :user
   has_many :comments
   has_one :experience, dependent: :destroy
@@ -6,6 +8,7 @@ class Orid < ApplicationRecord
   after_create :generate_exp_ponit
 
   validates :objective, :reflective, :interpretive, :decisional,  presence: true
+  validates_inclusion_of :status, :in => STATUS
 
   default_scope { order("created_at DESC") }
 

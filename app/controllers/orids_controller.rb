@@ -3,7 +3,7 @@ class OridsController < ApplicationController
   impressionist :actions=>[:show]
 
   def index
-    @orids = Orid.all.paginate(:page => params[:page], :per_page => 10).where(:is_hidden => false)
+    @orids = Orid.all.paginate(:page => params[:page], :per_page => 10).where(status: "public")
     set_page_title "全部 Orid"
   end
 
@@ -56,6 +56,6 @@ class OridsController < ApplicationController
   private
 
   def orid_params
-    params.require(:orid).permit(:objective, :reflective, :interpretive, :decisional, :is_hidden)
+    params.require(:orid).permit(:objective, :reflective, :interpretive, :decisional, :status)
   end
 end

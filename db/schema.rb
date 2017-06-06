@@ -113,9 +113,9 @@ ActiveRecord::Schema.define(version: 20170606144247) do
     t.text     "reflective"
     t.text     "interpretive"
     t.text     "decisional"
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
-    t.boolean  "is_hidden",    default: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+    t.string   "status",       default: "public"
   end
 
   create_table "users", force: :cascade do |t|

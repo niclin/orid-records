@@ -3,6 +3,16 @@
         <div class="panel-heading"><%= controller.action_name == "new" ? '新增' : '編輯' %> ORID</div>
         <div class="panel-body">
             <%= simple_form_for @orid do |f| %>
+            狀態：
+              <div class="btn-group" data-toggle="buttons">
+                <% Orid::STATUS.each do |status| %>
+                  <label class="btn btn-default <%= (status == f.object.status)? 'active' : '' %>">
+                    <%= f.radio_button :status, status %>
+                    <%= t(status, :scope => "orid.status") %>
+                  </label>
+                <% end %>
+              </div>
+              <hr>
             <%= f.input :objective, label: 'Objective 客觀、事實', placeholder: '關於今天, 你記得什麼？完成了什麼？', :input_html => { :style => 'height: 100px', :class => 'wysihtml5' } %>
             <br>
             <%= f.input :reflective, label: 'Reflective 感受、反應', placeholder: '你要如何形容今天的情緒
@@ -17,7 +27,6 @@
             <%= f.input :decisional, label: 'Decisional 決定、行動', placeholder: '我們會如何用一句話形容今天的工作
 有哪些工作需要明天繼續努力？', :input_html => { :style=> 'height: 100px', :class => 'wysihtml5' } %>
             <br>
-            <%= f.input :is_hidden, label: '隱藏' %>
         </div>
         <div class="panel-footer">
             <%= f.submit "Submit", :disable_with => 'Submiting...', class: 'btn btn-primary' %>
