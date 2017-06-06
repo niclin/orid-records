@@ -13,8 +13,8 @@ class Item::TradeTrackingController < ApplicationController
     @usdt_sc = Poloniex::Market.by_pair("BTC_SC").last.to_f * Poloniex::Market.by_pair("USDT_BTC").last.to_f * @convert_form_usd
     @usdt_btc = Poloniex::Market.by_pair("USDT_BTC").last.to_f * @convert_form_usd
 
-    client_yunbi = PeatioAPI::Client.new endpoint: 'https://yunbi.com'
-    response_yunbi = client_yunbi.get_public '/api/v2/tickers'
+    response_yunbi = RestClient.get "https://yunbi.com/api/v2/tickers"
+    data_yunbi = JSON.parse(response_yunbi.body)
 
     if @currency != "CNY"
       @convert_form_cny = Money.default_bank.get_rate('CNY', @currency).to_f
@@ -22,14 +22,14 @@ class Item::TradeTrackingController < ApplicationController
       @convert_form_cny = 1
     end
 
-    @btc_yunbi = response_yunbi["btccny"]["ticker"]["sell"].to_f * @convert_form_cny
-    @zec_yunbi = response_yunbi["zeccny"]["ticker"]["sell"].to_f * @convert_form_cny
-    @eth_yunbi = response_yunbi["ethcny"]["ticker"]["sell"].to_f * @convert_form_cny
-    @sc_yunbi = response_yunbi["sccny"]["ticker"]["sell"].to_f * @convert_form_cny
-    @btc_yunbi = response_yunbi["btccny"]["ticker"]["sell"].to_f * @convert_form_cny
+    @btc_yunbi = data_yunbi["btccny"]["ticker"]["sell"].to_f * @convert_form_cny
+    @zec_yunbi = data_yunbi["zeccny"]["ticker"]["sell"].to_f * @convert_form_cny
+    @eth_yunbi = data_yunbi["ethcny"]["ticker"]["sell"].to_f * @convert_form_cny
+    @sc_yunbi = data_yunbi["sccny"]["ticker"]["sell"].to_f * @convert_form_cny
+    @btc_yunbi = data_yunbi["btccny"]["ticker"]["sell"].to_f * @convert_form_cny
 
-    client_bitoex = PeatioAPI::Client.new endpoint: 'https://www.bitoex.com/'
-    response_bitoex = client_bitoex.get_public '/api/v1/get_rate'
+    response_bitoex = RestClient.get "https://www.bitoex.com/api/v1/get_rate"
+    data_bitoex = JSON.parse(response_bitoex.body)
 
     if @currency != "TWD"
       @convert_form_twd = Money.default_bank.get_rate('TWD', @currency).to_f
@@ -37,12 +37,12 @@ class Item::TradeTrackingController < ApplicationController
       @convert_form_twd = 1
     end
 
-    @btc_bitoex = response_bitoex["buy"] * @convert_form_twd
+    @btc_bitoex = data_bitoex["buy"] * @convert_form_twd
 
-    client_maicoin = PeatioAPI::Client.new endpoint: 'https://api.maicoin.com'
-    response_maicoin = client_maicoin.get_public '/v1/prices/twd'
+    response_maicoin = RestClient.get "https://api.maicoin.com/v1/prices/twd"
+    data_maicoin = JSON.parse(response_maicoin.body)
 
-    @btc_maicoin = response_maicoin["buy_price"].to_f * @convert_form_twd
+    @btc_maicoin = data_maicoin["buy_price"].to_f * @convert_form_twd
 
     set_page_title "虛擬幣追蹤行情"
   end

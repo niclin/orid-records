@@ -46,7 +46,7 @@ gem 'impressionist'
 gem 'seo_helper', '~> 1.0'
 gem 'poloniex', :git => "https://github.com/developerby/poloniex.git"
 gem 'google_currency'
-gem 'peatio_client'
+gem 'rest-client'
 gem 'money'
 
 # Use Capistrano for deployment

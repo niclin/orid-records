@@ -119,11 +119,7 @@ GEM
     domain_name (0.5.20170404)
       unf (>= 0.0.5, < 1.0.0)
     erubis (2.7.0)
-    eventmachine (1.2.2)
     execjs (2.7.0)
-    faye-websocket (0.10.7)
-      eventmachine (>= 0.12.0)
-      websocket-driver (>= 0.5.1)
     ffi (1.9.18)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
@@ -170,9 +166,6 @@ GEM
     nokogiri (1.7.1)
       mini_portile2 (~> 2.1.0)
     orm_adapter (0.5.0)
-    peatio_client (0.0.7)
-      activesupport
-      faye-websocket
     pg (0.20.0)
     pry (0.10.4)
       coderay (~> 1.1.0)
@@ -306,7 +299,6 @@ DEPENDENCIES
   listen (~> 3.0.5)
   mini_magick
   money
-  peatio_client
   pg
   poloniex!
   pry
@@ -314,6 +306,7 @@ DEPENDENCIES
   pry-stack_explorer
   puma (~> 3.0)
   rails (~> 5.0.2)
+  rest-client
   reverse_markdown
   sass-rails (~> 5.0)
   seo_helper (~> 1.0)
