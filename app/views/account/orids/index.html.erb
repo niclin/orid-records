@@ -8,7 +8,7 @@
         <table class="table table-hover">
           <thead>
             <tr>
-              <td>#</td>
+              <td>狀態</td>
               <td>ORID 摘要</td>
               <td>作者</td>
               <td>建立時間</td>
@@ -17,7 +17,7 @@
           <tbody>
             <% @orids.each do |orid| %>
             <tr>
-              <td>#</td>
+              <td><%= render_orid_status(orid) %></td>
               <td><%= link_to simple_format(truncate(orid.objective, length: 30 )), orid_path(orid) %></td>
               <td><%= orid.user.name %></td>
               <td><%= orid.created_at.strftime('%Y-%m-%d %H:%M') %></td>
