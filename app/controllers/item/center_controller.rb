@@ -13,7 +13,7 @@ class Item::CenterController < ApplicationController
       flash[:notice] = "成功購買"
     else
       redirect_to :back
-      flash[:notice] = "購買失敗"
+      flash[:warning] = "購買失敗, 點數不足，或是商品不存在"
     end
   end
 end

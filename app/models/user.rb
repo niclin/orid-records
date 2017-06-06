@@ -38,6 +38,10 @@ class User < ApplicationRecord
   def has_item?(item)
     buy_records.where(item: item).exists?
   end
+
+  def has_event?(event)
+    Item.where(id: buy_records.pluck(:item_id), event: event).exists?
+  end
 end
 
 # == Schema Information
