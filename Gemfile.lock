@@ -1,18 +1,18 @@
 GIT
-  remote: https://github.com/developerby/poloniex.git
-  revision: 48106daade3117b48b03932a19b2f6a15f384912
-  specs:
-    poloniex (1.0.1)
-      addressable
-      rest-client
-
-GIT
   remote: https://github.com/growthschool/capistrano-db-tasks.git
   revision: f75f54cdbf567f3e0bb6b6b252c27d5dcc654ebc
   branch: develop
   specs:
     capistrano-db-tasks (0.6)
       capistrano (>= 3.0.0)
+
+GIT
+  remote: https://github.com/niclin/poloniex.git
+  revision: 5f72a760d2a0b7ee883149d5a920be01392d0596
+  specs:
+    poloniex (1.0.1)
+      addressable
+      rest-client
 
 GEM
   remote: https://rubygems.org/

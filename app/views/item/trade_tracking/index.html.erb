@@ -1,5 +1,10 @@
+<%= link_to '設定金鑰', new_item_trade_tracking_path, class: 'btn btn-danger' %>
+
 <div class="row">
   <div class="col-md-6 col-centered">
+  <div class="well">
+    當前總共 BTC ： <%= @total_btc.blank? == true ? "金鑰資訊錯誤或是未填寫" : @total_btc %>
+  </div>
     <div class="panel panel-default">
       <div class="panel-heading">虛擬幣行情追蹤</div>
       <div class="panel-body">

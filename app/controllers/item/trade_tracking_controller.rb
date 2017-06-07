@@ -51,7 +51,30 @@ class Item::TradeTrackingController < ApplicationController
 
     @btc_okcoin = data_okcoin["ticker"]["buy"].to_f * convert_form_cny
 
+    Poloniex.client.instance_variable_set(:@key, current_user.infos.last.key)
+    Poloniex.client.instance_variable_set(:@secret, current_user.infos.last.secret)
+
+    @total_btc = Poloniex::Wallet.total_btc
+
+    rescue
+      "error"
+
     set_page_title "虛擬幣追蹤行情"
+  end
+
+  def new
+    @user_info = current_user.infos.build
+  end
+
+  def create
+    @user_info = current_user.infos.build(user_info_params)
+
+    if @user_info.save
+      redirect_to item_trade_tracking_index_path
+      flash[:warning] = "填寫成功"
+    else
+      render :new
+    end
   end
 
   private
@@ -61,5 +84,9 @@ class Item::TradeTrackingController < ApplicationController
       redirect_to :back
       flash[:warning] = "你沒有權限使用，請購買相關功能"
     end
+  end
+
+  def user_info_params
+    params.require(:user_info).permit(:key, :secret, :api_type)
   end
 end

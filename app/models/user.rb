@@ -10,6 +10,7 @@ class User < ApplicationRecord
   has_many :experience
   has_many :notifications, as: :notifiable, dependent: :destroy
   has_many :buy_records
+  has_many :infos, :class_name => "UserInfo", :dependent => :destroy
 
   validates_presence_of :name
 

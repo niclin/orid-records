@@ -32,7 +32,7 @@ Rails.application.routes.draw do
         post :buy
       end
     end
-    resources :trade_tracking, only: [:index]
+    resources :trade_tracking, only: [:index, :new, :create]
   end
 
   resources :orders do

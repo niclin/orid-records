@@ -44,7 +44,7 @@ gem 'reverse_markdown'
 gem 'bootstrap-wysihtml5-rails'
 gem 'impressionist'
 gem 'seo_helper', '~> 1.0'
-gem 'poloniex', :git => "https://github.com/developerby/poloniex.git"
+gem 'poloniex', :git => "https://github.com/niclin/poloniex.git"
 gem 'google_currency'
 gem 'rest-client'
 gem 'money'

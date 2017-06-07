@@ -1,0 +1,6 @@
+<%= simple_form_for @user_info, :url => item_trade_tracking_index_path do |f| %>
+  <%= f.input :key %>
+  <%= f.input :secret %>
+  <%= f.select :api_type, UserInfo::TYPE.map{ |s| s }, {}, :class => "form-control" %>
+  <%= f.button :submit %>
+<% end %>
