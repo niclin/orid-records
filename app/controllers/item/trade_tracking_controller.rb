@@ -51,6 +51,17 @@ class Item::TradeTrackingController < ApplicationController
 
     @btc_okcoin = data_okcoin["ticker"]["buy"].to_f * convert_form_cny
 
+    response_btctrade = RestClient.get "https://api.btctrade.com/api/ticker?coin=btc"
+    data_btctrade = JSON.parse(response_btctrade.body)
+
+    @btc_btctrade = data_btctrade["buy"].to_f * convert_form_cny
+
+
+    response_btctrade_eth = RestClient.get "https://api.btctrade.com/api/ticker?coin=eth"
+    data_btctrade_eth = JSON.parse(response_btctrade_eth.body)
+
+    @eth_btctrade = data_btctrade_eth["buy"].to_f * convert_form_cny
+
     Poloniex.client.instance_variable_set(:@key, current_user.infos.last.key)
     Poloniex.client.instance_variable_set(:@secret, current_user.infos.last.secret)
 
