@@ -48,7 +48,10 @@
       <% @orid.comments.each do |comment| %>
       <div class="comment <%= comment.user == current_user ? 'by-self' : 'by-others'%>">
         <div class="comment_account">
-          <i class="material-icons md-48" title="<%= comment.user.name %>">account_circle</i>
+          <i class="material-icons" title="<%= comment.user.name %>">account_circle</i>
+          <!-- 圖片測試，此處圖片請新增一個 classname: comment_accont-img 和title 跟上面html元素一樣-->
+          <%= render_user_avatar %>
+          <!-- 圖片測試 -->
         </div>
         <div class="comment_mesg"><%= comment.message %></div>
       </div>
@@ -57,3 +60,11 @@
     </div>
   </div>
 </div>
+
+
+
+
+
+
+
+
