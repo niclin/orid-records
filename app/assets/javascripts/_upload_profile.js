@@ -12,6 +12,7 @@ $(function (){
             var reader = new FileReader();
             
             reader.onload = function (e) {
+                $('.preview').addClass('uploaded');
                 $('.preview').attr('src', e.target.result);
                 var KB = format_float(e.total / 1024, 2);
                 $('.size').text("檔案大小：" + KB + " KB");

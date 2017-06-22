@@ -68,9 +68,16 @@
 		    left: 0;
 		    top: 0;
 		}
+
+		.preview {
+			display: none;
+			&.uploaded {
+				display: inline-block;
+			}
+		}
 	}
 	i {
-		color: black;
+		color: #393939;
 	    margin: 9px;
 		font-size: 72px;
 	}
