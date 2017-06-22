@@ -1,0 +1,78 @@
+@charset "UTF-8";
+// ==========================================================================
+// User-setting
+// ==========================================================================
+
+@keyframes anim{
+	0% {transform: translateX(0px) ;}
+	100% {transform: translateX(-400px) ;}
+}
+
+
+.gradient, .gradient:after {
+	display: block;
+	content: "";
+	width: 400px; height: 100px;
+	// background: #bd328f;
+	// background: -moz-linear-gradient(-45deg,  #bd328f 0%, #bd328f 18%, #2976ab 42%, #292f75 62%, #bd328f 82%, #bd328f 100%);
+	// background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,#bd328f), color-stop(18%,#bd328f), color-stop(42%,#2976ab), color-stop(62%,#292f75), color-stop(82%,#bd328f), color-stop(100%,#bd328f));
+	// background: -webkit-linear-gradient(-45deg,  #bd328f 0%,#bd328f 18%,#2976ab 42%,#292f75 62%,#bd328f 82%,#bd328f 100%);
+	// background: -o-linear-gradient(-45deg,  #bd328f 0%,#bd328f 18%,#2976ab 42%,#292f75 62%,#bd328f 82%,#bd328f 100%);
+	// background: -ms-linear-gradient(-45deg,  #bd328f 0%,#bd328f 18%,#2976ab 42%,#292f75 62%,#bd328f 82%,#bd328f 100%);
+	// background: linear-gradient(135deg,  #bd328f 0%,#bd328f 18%,#2976ab 42%,#292f75 62%,#bd328f 82%,#bd328f 100%);
+	background: #78f751; /* Old browsers */
+	background: -moz-linear-gradient(left, #78f751 0%, #53c4fc 48%, #78f751 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(left, #78f751 0%,#53c4fc 48%,#78f751 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to right, #78f751 0%,#53c4fc 48%,#78f751 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#78f751', endColorstr='#78f751',GradientType=1 ); /* IE6-9 */
+}
+
+.gradient {
+	animation: 2s anim linear infinite;
+}
+
+.gradient:after {
+	transform: translateX(400px);
+}
+
+
+.image-block {
+	color: #fff;	
+	text-align: center;
+	background: white;
+	// background: #1d1d1d;
+}
+
+
+.image-block-circle {
+	width: 100px; height: 100px;
+	overflow: hidden;
+	position: relative;
+	cursor: pointer;
+	margin: 15px;
+	border-radius: 100%;
+	float: left;
+	.image-block {
+		width: 90px;
+		height: 90px;
+		border-radius: 100%;
+		position: absolute;
+		top: 5px;
+		left: 5px;
+
+		img {
+		    width: 100%;
+		    height: 100%;
+		    border-radius: 100%;
+		    position: absolute;
+		    left: 0;
+		    top: 0;
+		}
+	}
+	i {
+		color: black;
+	    margin: 9px;
+		font-size: 72px;
+	}
+}
+
