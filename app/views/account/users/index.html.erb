@@ -1,15 +1,29 @@
-<h2 class="main-title">個人資料</h2>
-<div class="account-profile">
-  <%= simple_form_for [:account,@user] do |f| %>
-  <div class="input-block">
-    <span>頭像</span>
-    <%= render_user_avatar %>
-    <div class="user-img-upload">
-      <%= f.input :avatar, label: false %>
+<div class="account-card">
+    <h2 class="main-title">個人資料</h2>
+
+    <div class="account-profile">
+      <%= simple_form_for [:account,@user] do |f| %>
+      <div class="input-block">
+        <span>頭像</span>
+
+        <div class="image-block-circle">
+            <div class="gradient"></div>
+            <div class="image-block">
+                <i class="material-icons">&#xE853;</i>
+                <%= render_user_avatar %>
+                <img class="preview">
+            </div>
+        </div>
+
+        <div class="size"></div>
+        <%= f.input :avatar, label: false %>
+
+        <span>用戶名</span>
+        <%= f.input :name, as: :string, label: false %>
+        <%= f.submit "更新資料", class: "btn btn-theme" %>
+      </div>
+      <% end %>
     </div>
-    <span>用戶名</span>
-    <%= f.input :name, as: :string, label: false %>
-    <%= f.submit "更新資料", class: "btn btn-theme" %>
-  </div>
-  <% end %>
 </div>
+
+
