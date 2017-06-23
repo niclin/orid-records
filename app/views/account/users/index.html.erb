@@ -1,6 +1,6 @@
 <div class="account-card">
     <h2 class="main-title">個人資料</h2>
-
+    <%= render_paid_status(current_user) %>
     <div class="account-profile">
       <%= simple_form_for [:account,@user] do |f| %>
       <div class="input-block">
@@ -16,11 +16,14 @@
         </div>
 
         <div class="size"></div>
+        <div class="upload-state text-red">
+            Please upload a picture smaller than 1 MB.
+        </div>
         <%= f.input :avatar, label: false %>
 
         <span>用戶名</span>
         <%= f.input :name, as: :string, label: false %>
-        <%= f.submit "更新資料", class: "btn btn-theme" %>
+        <%= f.submit "更新資料", class: "btn btn-theme", id:"account-update" %>
       </div>
       <% end %>
     </div>
