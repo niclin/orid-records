@@ -7,12 +7,8 @@ module ApplicationHelper
     end
   end
 
-  def render_user_avatar
-    if current_user.avatar.present?
-      image_tag(current_user.avatar.url)
-    else
-      '暫無頭像'
-    end
+  def render_user_avatar(user)
+    image_tag(user.avatar.url, class: "comment_account-img", title: user.name) if user.avatar.present?
   end
 
   def render_orid_title_link(orid)
