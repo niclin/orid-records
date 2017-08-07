@@ -2,7 +2,7 @@ class Orid < ApplicationRecord
   STATUS = ["public", "private"]
 
   belongs_to :user
-  has_many :comments
+  has_many :comments, dependent: :destroy
   has_one :experience, dependent: :destroy
 
   after_create :generate_exp_ponit
